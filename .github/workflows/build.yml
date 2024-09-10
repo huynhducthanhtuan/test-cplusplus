@@ -1,0 +1,38 @@
+name: C++ Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Install dependencies (CMake, GCC/G++, or Clang)
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ # or replace g++ with clang if preferred
+
+      # Step 3: Create build directory and build the project
+      - name: Build C++ code
+        run: |
+          mkdir -p build
+          cd build
+          cmake ..
+          cmake --build .
+
+      # Step 4: Run tests (if applicable)
+      - name: Run tests
+        run: |
+          cd build
+          ctest --output-on-failure
