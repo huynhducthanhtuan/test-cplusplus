@@ -15,6 +15,11 @@ set(SOURCES
     main2.cpp
 )
 
+# Add compiler flags to treat warnings as errors
+if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    add_compile_options(-Wall -Wextra -Werror) # Treat warnings as errors
+endif()
+
 # Add an executable target (replace 'MyExecutable' with the desired executable name)
 add_executable(MyExecutable ${SOURCES})
 
@@ -25,7 +30,3 @@ add_executable(MyExecutable ${SOURCES})
 # target_link_libraries(MyExecutable pthread)
 
 
-# Add compiler flags to treat warnings as errors
-if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    add_compile_options(-Wall -Wextra -Werror) # Treat warnings as errors
-endif()
