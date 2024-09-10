@@ -1,32 +1,22 @@
-# Minimum version of CMake required
 cmake_minimum_required(VERSION 3.10)
+project(MyProject VERSION 1.0)
 
-# Project name and version
-project(test-cplusplus VERSION 1.0)
-
-# Specify the C++ standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Add source files
-# If your sources are located in a different folder (e.g., src/), adjust the path accordingly
+# Add your source files here
 set(SOURCES 
     main.cpp
     main2.cpp
+    main3.cpp
 )
 
-# Add compiler flags to treat warnings as errors
-if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    add_compile_options(-Wall -Wextra -Werror) # Treat warnings as errors
-endif()
-
-# Add an executable target (replace 'MyExecutable' with the desired executable name)
+# Create the executable
 add_executable(MyExecutable ${SOURCES})
 
-# Include directories if you have header files in a separate folder
-# include_directories(include)
-
-# Link libraries if needed (e.g., pthread, etc.)
-# target_link_libraries(MyExecutable pthread)
-
-
+# Enforce strict compiler flags to treat warnings as errors
+if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    target_compile_options(MyExecutable PRIVATE -Wall -Wextra -Werror)
+elseif (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+    target_compile_options(MyExecutable PRIVATE /W4 /WX)
+endif()
