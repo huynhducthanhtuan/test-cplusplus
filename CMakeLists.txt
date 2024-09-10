@@ -12,6 +12,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # If your sources are located in a different folder (e.g., src/), adjust the path accordingly
 set(SOURCES 
     main.cpp
+    main2.cpp
 )
 
 # Add an executable target (replace 'MyExecutable' with the desired executable name)
