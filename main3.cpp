@@ -6,5 +6,6 @@ using namespace std;
 int main3()
 {
 	// Test build failed case
-	cout << "Hello world"
+	cout  "Hello world";
+	return 0;
 }
