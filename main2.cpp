@@ -3,7 +3,8 @@
 
 using namespace std;
 
-int main()
+// Error multiple definition for "main" function
+int main2()
 {
 	cout << "Hello world";
 }
