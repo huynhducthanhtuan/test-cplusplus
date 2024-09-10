@@ -23,3 +23,9 @@ add_executable(MyExecutable ${SOURCES})
 
 # Link libraries if needed (e.g., pthread, etc.)
 # target_link_libraries(MyExecutable pthread)
+
+
+# Add compiler flags to treat warnings as errors
+if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    add_compile_options(-Wall -Wextra -Werror) # Treat warnings as errors
+endif()
