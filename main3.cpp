@@ -3,7 +3,8 @@
 
 using namespace std;
 
-int main2()
+int main3()
 {
-	cout << "Hello world";
+	// Test build failed case
+	cout << "Hello world"
 }
